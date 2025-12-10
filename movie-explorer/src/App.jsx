@@ -1,9 +1,41 @@
 import MovieCard from "./components/MovieCard";
-
+import Categories from "./components/Categories";
 import { useState, useEffect } from "react";
+import { Flame, Swords, Heart, Panda, Ghost, Star, Moon } from "lucide-react";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+
+  const movieCategories = [
+    {
+      movieCategory: "Trending",
+      icon: <Flame />,
+    },
+    {
+      movieCategory: "Action",
+      icon: <Swords />,
+    },
+    {
+      movieCategory: "Romance",
+      icon: <Heart />,
+    },
+    {
+      movieCategory: "Animation",
+      icon: <Panda />,
+    },
+    {
+      movieCategory: "Horror",
+      icon: <Ghost />,
+    },
+    {
+      movieCategory: "Special",
+      icon: <Star />,
+    },
+    {
+      movieCategory: "Drakor",
+      icon: <Moon />,
+    },
+  ];
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -26,9 +58,12 @@ const App = () => {
   }, []);
   return (
     <>
-      {movies.map((movie) => (
-        <MovieCard movie={movie} />
-      ))}
+      <Categories movieCategories={movieCategories} />
+      <div className="trendingMovies">
+        {movies.map((movie, index) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+      </div>
     </>
   );
 };

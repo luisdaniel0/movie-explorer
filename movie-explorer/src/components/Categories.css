@@ -1,0 +1,17 @@
+ul {
+  display: flex;
+  gap: 15px;
+}
+
+li {
+  list-style: none;
+  border: 1px solid black;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #d0d4de 0%, #aeb5c1 100%);
+}
+
+button {
+  cursor: pointer;
+}

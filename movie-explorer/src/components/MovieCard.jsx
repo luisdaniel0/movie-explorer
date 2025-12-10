@@ -1,6 +1,8 @@
 import "./MovieCard.css";
 
 const MovieCard = ({ movie }) => {
+  const year = movie.release_date.slice(0, 4);
+  console.log(year);
   return (
     <div className="movieCard">
       <img
@@ -9,7 +11,7 @@ const MovieCard = ({ movie }) => {
       />
       <h3 className="movieTitle">{movie.title}</h3>
       <p className="movieYearRating">
-        ⭐{movie.vote_average} | {movie.release_date}
+        ⭐{movie.vote_average} | {year}
       </p>
     </div>
   );
