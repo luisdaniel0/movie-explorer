@@ -1,0 +1,11 @@
+.movieCard {
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 1px 4px rgb(99, 150, 192);
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
