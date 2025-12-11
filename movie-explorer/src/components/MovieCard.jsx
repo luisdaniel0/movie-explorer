@@ -2,7 +2,7 @@ import "./MovieCard.css";
 
 const MovieCard = ({ movie }) => {
   const year = movie.release_date.slice(0, 4);
-  console.log(year);
+
   return (
     <div className="movieCard">
       <img

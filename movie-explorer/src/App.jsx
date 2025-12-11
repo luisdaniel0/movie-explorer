@@ -5,6 +5,7 @@ import { Flame, Swords, Heart, Panda, Ghost, Star, Moon } from "lucide-react";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState("Trending");
 
   const movieCategories = [
     {
@@ -37,6 +38,9 @@ const App = () => {
     },
   ];
 
+  function handleCategory(category) {
+    setFilteredCategories(category);
+  }
   useEffect(() => {
     const fetchMovies = async () => {
       const url =
@@ -48,7 +52,7 @@ const App = () => {
           throw new Error("Movies not found!");
         }
         const data = await response.json();
-        console.log(data);
+
         setMovies(data.results);
       } catch (error) {
         console.error("Error in API call!", error);
@@ -58,7 +62,11 @@ const App = () => {
   }, []);
   return (
     <>
-      <Categories movieCategories={movieCategories} />
+      <Categories
+        movieCategories={movieCategories}
+        filteredCategories={filteredCategories}
+        handleCategory={handleCategory}
+      />
       <div className="trendingMovies">
         {movies.map((movie, index) => (
           <MovieCard key={index} movie={movie} />
