@@ -55,7 +55,7 @@ const App = () => {
           (category) => category.movieCategory === filteredCategories
         );
         url = `https://api.themoviedb.org/3/discover/movie?with_genres=${selectedCategory.genreId}&api_key=63efd9bdf15c423e8869bd88d09598e1`;
-        console.log(selectedCategory.id);
+        console.log(selectedCategory.genreId);
       } else {
         url = `https://api.themoviedb.org/3/trending/movie/week?api_key=63efd9bdf15c423e8869bd88d09598e1`;
       }

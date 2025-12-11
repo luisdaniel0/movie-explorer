@@ -15,3 +15,6 @@ li {
 button {
   cursor: pointer;
 }
+.active {
+  background: rgb(235, 0, 0);
+}
