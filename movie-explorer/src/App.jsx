@@ -15,26 +15,32 @@ const App = () => {
     {
       movieCategory: "Action",
       icon: <Swords />,
+      genreId: 28,
     },
     {
       movieCategory: "Romance",
       icon: <Heart />,
+      genreId: 10749,
     },
     {
       movieCategory: "Animation",
       icon: <Panda />,
+      genreId: 16,
     },
     {
       movieCategory: "Horror",
       icon: <Ghost />,
+      genreId: 27,
     },
     {
-      movieCategory: "Special",
+      movieCategory: "TV_Film",
       icon: <Star />,
+      genreId: 10770,
     },
     {
-      movieCategory: "Drakor",
+      movieCategory: "Fantasy",
       icon: <Moon />,
+      genreId: 14,
     },
   ];
 
@@ -43,8 +49,16 @@ const App = () => {
   }
   useEffect(() => {
     const fetchMovies = async () => {
-      const url =
-        "https://api.themoviedb.org/3/trending/movie/week?api_key=63efd9bdf15c423e8869bd88d09598e1";
+      let url = "";
+      if (filteredCategories !== "Trending") {
+        const selectedCategory = movieCategories.find(
+          (category) => category.movieCategory === filteredCategories
+        );
+        url = `https://api.themoviedb.org/3/discover/movie?with_genres=${selectedCategory.genreId}&api_key=63efd9bdf15c423e8869bd88d09598e1`;
+        console.log(selectedCategory.id);
+      } else {
+        url = `https://api.themoviedb.org/3/trending/movie/week?api_key=63efd9bdf15c423e8869bd88d09598e1`;
+      }
 
       try {
         const response = await fetch(url);
@@ -59,7 +73,7 @@ const App = () => {
       }
     };
     fetchMovies();
-  }, []);
+  }, [filteredCategories]);
   return (
     <>
       <Categories
