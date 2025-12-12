@@ -1,0 +1,22 @@
+.heroCards {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.heroMovieTitle {
+  position: absolute;
+  top: 0;
+}
+
+.playLeftMovieBtn {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+}
+
+.playRightMovieBtn {
+  position: absolute;
+  bottom: 5%;
+  right: 33%;
+}

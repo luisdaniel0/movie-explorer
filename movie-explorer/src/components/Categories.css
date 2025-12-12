@@ -3,7 +3,7 @@ ul {
   gap: 15px;
 }
 
-li {
+.categoryCard {
   list-style: none;
   border: 1px solid black;
   padding: 20px;

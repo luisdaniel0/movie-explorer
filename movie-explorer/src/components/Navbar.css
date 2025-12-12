@@ -1,0 +1,9 @@
+.navbarItems {
+  justify-content: center;
+  list-style: none;
+}
+
+.navItem {
+  border: 1px solid black;
+  padding: 10px;
+}

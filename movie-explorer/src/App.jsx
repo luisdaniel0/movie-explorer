@@ -1,5 +1,7 @@
 import MovieCard from "./components/MovieCard";
 import Categories from "./components/Categories";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import { useState, useEffect } from "react";
 import { Flame, Swords, Heart, Panda, Ghost, Star, Moon } from "lucide-react";
 
@@ -55,7 +57,6 @@ const App = () => {
           (category) => category.movieCategory === filteredCategories
         );
         url = `https://api.themoviedb.org/3/discover/movie?with_genres=${selectedCategory.genreId}&api_key=63efd9bdf15c423e8869bd88d09598e1`;
-        console.log(selectedCategory.genreId);
       } else {
         url = `https://api.themoviedb.org/3/trending/movie/week?api_key=63efd9bdf15c423e8869bd88d09598e1`;
       }
@@ -66,7 +67,7 @@ const App = () => {
           throw new Error("Movies not found!");
         }
         const data = await response.json();
-
+        console.log(data);
         setMovies(data.results);
       } catch (error) {
         console.error("Error in API call!", error);
@@ -76,11 +77,16 @@ const App = () => {
   }, [filteredCategories]);
   return (
     <>
+      <Navbar />
+      <Hero filteredCategories={filteredCategories} movies={movies} />
       <Categories
         movieCategories={movieCategories}
         filteredCategories={filteredCategories}
         handleCategory={handleCategory}
       />
+
+      <h2>Trending in {filteredCategories}</h2>
+
       <div className="trendingMovies">
         {movies.map((movie, index) => (
           <MovieCard key={index} movie={movie} />
