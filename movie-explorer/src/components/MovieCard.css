@@ -1,5 +1,4 @@
 .movieCard {
-  width: 200px;
   border: none;
   border-radius: 20px;
   box-shadow: 1px 1px 4px rgb(99, 150, 192);
@@ -8,6 +7,8 @@
 
 .movieCard img {
   width: 100%;
+  height: 60%;
+  object-fit: cover;
 }
 
 .trendingMovies {

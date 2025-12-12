@@ -9,7 +9,7 @@ const Categories = ({
     <div className="categories">
       <ul>
         {movieCategories.map((category, index) => (
-          <li className="categoryLi" key={index} className="categoryCard">
+          <li key={index} className="categoryCard">
             <button
               onClick={() => handleCategory(category.movieCategory)}
               className={
