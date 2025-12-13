@@ -8,6 +8,7 @@ import { Flame, Swords, Heart, Panda, Ghost, Star, Moon } from "lucide-react";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState("Trending");
+  const [loading, setLoading] = useState(true);
 
   const movieCategories = [
     {
@@ -71,14 +72,22 @@ const App = () => {
         setMovies(data.results);
       } catch (error) {
         console.error("Error in API call!", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovies();
   }, [filteredCategories]);
+  if (loading) return <div>Loading...</div>;
+
   return (
     <>
       <Navbar />
-      <Hero filteredCategories={filteredCategories} movies={movies} />
+      <Hero
+        filteredCategories={filteredCategories}
+        movies={movies}
+        loading={loading}
+      />
       <Categories
         movieCategories={movieCategories}
         filteredCategories={filteredCategories}

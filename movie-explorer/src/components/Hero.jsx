@@ -1,6 +1,8 @@
 import "./Hero.css";
 
-const Hero = ({ filteredCategories, movies }) => {
+const Hero = ({ movies, loading }) => {
+  console.log(movies);
+
   return (
     <div className="heroCards">
       <div className="heroLeft">
