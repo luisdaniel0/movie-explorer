@@ -20,3 +20,7 @@
   bottom: 5%;
   right: 33%;
 }
+
+.heroCards img {
+  width: 750px;
+}

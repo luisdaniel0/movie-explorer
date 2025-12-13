@@ -9,6 +9,31 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState("Trending");
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  function getCurrentPageMovies(moviesArr) {
+    const moviesPerPage = 5;
+    const startIndex = currentPage * moviesPerPage;
+    const endIndex = startIndex + moviesPerPage;
+
+    return moviesArr.slice(startIndex, endIndex);
+  }
+
+  function handleNextButton() {
+    const moviesPerPage = 7;
+    const totalPages = Math.ceil(movies.length / moviesPerPage);
+    if (currentPage >= totalPages - 1) {
+      return;
+    }
+    setCurrentPage(currentPage + 1);
+  }
+
+  function handlePrevButton() {
+    if (currentPage <= 0) {
+      return;
+    }
+    setCurrentPage(currentPage - 1);
+  }
 
   const movieCategories = [
     {
@@ -49,6 +74,7 @@ const App = () => {
 
   function handleCategory(category) {
     setFilteredCategories(category);
+    setCurrentPage(0);
   }
   useEffect(() => {
     const fetchMovies = async () => {
@@ -79,30 +105,36 @@ const App = () => {
     fetchMovies();
   }, [filteredCategories]);
   if (loading) return <div>Loading...</div>;
-
-  return (
-    <>
-      <Navbar />
-      <Hero
-        filteredCategories={filteredCategories}
-        movies={movies}
-        loading={loading}
-      />
-      <Categories
-        movieCategories={movieCategories}
-        filteredCategories={filteredCategories}
-        handleCategory={handleCategory}
-      />
-
-      <h2>Trending in {filteredCategories}</h2>
-
-      <div className="trendingMovies">
-        {movies.map((movie, index) => (
-          <MovieCard key={index} movie={movie} />
-        ))}
-      </div>
-    </>
-  );
+  if (filteredCategories)
+    return (
+      <>
+        <Navbar />
+        <Hero
+          filteredCategories={filteredCategories}
+          movies={movies}
+          loading={loading}
+        />
+        <Categories
+          movieCategories={movieCategories}
+          filteredCategories={filteredCategories}
+          handleCategory={handleCategory}
+        />
+        <h2>{filteredCategories}</h2>
+        <div className="trendingMovies">
+          {getCurrentPageMovies(movies).map((movie, index) => (
+            <MovieCard key={index} movie={movie} />
+          ))}
+        </div>
+        <div className="carouselButtons">
+          <button className="carouselButton" onClick={handlePrevButton}>
+            Previous
+          </button>
+          <button className="carouselButton" onClick={handleNextButton}>
+            Next
+          </button>
+        </div>
+      </>
+    );
 };
 
 export default App;

@@ -6,7 +6,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div className="movieCard">
       <img
-        src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
       />
       <h3 className="movieTitle">{movie.title}</h3>

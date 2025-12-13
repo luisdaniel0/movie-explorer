@@ -1,6 +1,6 @@
 import "./Hero.css";
 
-const Hero = ({ movies, loading }) => {
+const Hero = ({ movies }) => {
   console.log(movies);
 
   return (
