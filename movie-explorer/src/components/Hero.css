@@ -12,15 +12,15 @@
 .playLeftMovieBtn {
   position: absolute;
   bottom: 5%;
-  left: 10%;
+  left: 15%;
 }
 
 .playRightMovieBtn {
   position: absolute;
   bottom: 5%;
-  right: 33%;
+  right: 30%;
 }
 
 .heroCards img {
-  width: 750px;
+  width: 500px;
 }

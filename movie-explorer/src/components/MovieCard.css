@@ -1,11 +1,11 @@
 .movieCard {
   border: none;
   border-radius: 20px;
-  box-shadow: 1px 1px 4px rgb(99, 150, 192);
+  box-shadow: 1px 1px 4px rgb(31, 102, 160);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 13rem;
+  width: 9rem;
   justify-content: space-between;
 }
 

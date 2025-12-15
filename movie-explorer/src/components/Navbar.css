@@ -1,9 +1,13 @@
 .navbarItems {
   justify-content: center;
   list-style: none;
+  gap: 40px;
 }
 
-.navItem {
-  border: 1px solid black;
+.navItem button {
+  border: none;
   padding: 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 20px;
 }

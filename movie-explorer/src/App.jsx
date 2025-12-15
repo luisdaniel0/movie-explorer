@@ -3,7 +3,17 @@ import Categories from "./components/Categories";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { useState, useEffect } from "react";
-import { Flame, Swords, Heart, Panda, Ghost, Star, Moon } from "lucide-react";
+import {
+  Flame,
+  Swords,
+  Heart,
+  Panda,
+  Ghost,
+  Star,
+  Moon,
+  ArrowBigRight,
+  ArrowBigLeft,
+} from "lucide-react";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -119,7 +129,8 @@ const App = () => {
           filteredCategories={filteredCategories}
           handleCategory={handleCategory}
         />
-        <h2>{filteredCategories}</h2>
+        <h3>{filteredCategories}</h3>
+
         <div className="trendingMovies">
           {getCurrentPageMovies(movies).map((movie, index) => (
             <MovieCard key={index} movie={movie} />
@@ -127,10 +138,10 @@ const App = () => {
         </div>
         <div className="carouselButtons">
           <button className="carouselButton" onClick={handlePrevButton}>
-            Previous
+            <ArrowBigLeft />
           </button>
           <button className="carouselButton" onClick={handleNextButton}>
-            Next
+            <ArrowBigRight />
           </button>
         </div>
       </>
