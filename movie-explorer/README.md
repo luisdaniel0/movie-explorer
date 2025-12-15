@@ -1,16 +1,29 @@
-# React + Vite
+Movie Explorer App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based movie discovery application that fetches and displays movies from The Movie Database (TMDB) API. Users can browse movies by category and navigate through a custom-built carousel.
 
-Currently, two official plugins are available:
+## Features Implemented
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Functionality
 
-## React Compiler
+- **Dynamic Movie Fetching**: Integrates with TMDB API to fetch trending movies and movies by genre
+- **Category Filtering**: Browse movies by different genres (Trending, Action, Romance, Animation, Horror, TV Film, Fantasy)
+- **Custom Carousel**: Built-from-scratch carousel with Previous/Next navigation showing 7 movies per page
+- **Hero Section**: Displays 2 featured movies with backdrop images
+- **Loading States**: Proper handling of async data with loading indicators
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### React Concepts Covered
 
-## Expanding the ESLint configuration
+- **Component Architecture**: Organized into reusable components (Navbar, Hero, Categories, MovieCard)
+- **State Management**: Using `useState` for managing movies, selected category, loading state, and carousel pagination
+- **Side Effects**: Using `useEffect` for API calls and watching state changes
+- **Props**: Passing data and functions between parent and child components
+- **Conditional Rendering**: Showing/hiding content based on state (loading, active categories)
+- **Event Handling**: onClick handlers for navigation and category selection
+- **Lists and Keys**: Mapping over arrays to render multiple components
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Styling Techniques
+
+- **Flexbox**: Used for layouts (navbar, categories, movie grids)
+- **Conditional CSS Classes**: Dynamic styling based on active state
+- **CSS Positioning**: Overlaying text on hero images
